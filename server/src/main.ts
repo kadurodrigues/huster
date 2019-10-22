@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { config } from 'dotenv';
 
-/** set environments variables */
+/** set env variables */
 config();
 
 async function bootstrap() {

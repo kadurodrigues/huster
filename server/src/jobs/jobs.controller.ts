@@ -1,17 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { JobsService } from './jobs.service';
+import { Job } from './interfaces/job.interface';
 
 @Controller('jobs')
 export class JobsController {
   constructor(private jobsService: JobsService) {}
   
-  @Get()
-  getAll(): string {
-    return this.jobsService.getAll()
+  @Post()
+  async createJob(@Body() job) {
+    this.jobsService.createJob(job);
   }
 
-  @Get(':id')
-  getJob(): any {
-    return this.jobsService.getJob()
+  @Get()
+  async getAll(): Promise<Job[]> {
+    return this.jobsService.getAll()
   }
 }
