@@ -16,7 +16,15 @@ export class JobsService {
     return await this.jobModel.find().exec();
   }
 
-  async findOne(id: string): Promise<Job> {
+  async findOne(id: string): Promise<Job | undefined> {
     return await this.jobModel.findOne({ _id: id });
+  }
+
+  async delete(id: string): Promise<Job> {
+    return await this.jobModel.findByIdAndRemove(id);
+  }
+
+  async update(id: string, item: any): Promise<Job> {
+    return await this.jobModel.findByIdAndUpdate(id, item, { new: true });
   }
 }

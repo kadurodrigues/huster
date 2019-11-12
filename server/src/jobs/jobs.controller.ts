@@ -1,8 +1,7 @@
-import { Controller, Get, Post, Body, Res, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { JobsService } from './jobs.service';
 import { Job } from './interfaces/job.interface';
 import { CreateJobDto } from './dto/create-job.dto';
-import { Response } from 'express';
 
 @Controller('jobs')
 export class JobsController {
